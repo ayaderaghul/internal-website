@@ -10,8 +10,8 @@
             </div>
             <h2><a class="article-title" href="{% url 'post-detail' post.id %}">{{ post.title }}</a></h2>
             <p class="article-content">{{ post.content | safe }}</p>
-            <p class="article-content">{% for k in post.keywords.all %}</p>
-            {{ k }}
+            <p class="article-content">keywords: {% for keyword in post.keywords.all %}</p>
+            <a href="{% url 'keyword-detail' keyword.id %}">{{ keyword }}</a>
             {% endfor %}
           </div>
         </article>

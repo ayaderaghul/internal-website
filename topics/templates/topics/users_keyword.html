@@ -1,21 +1,15 @@
 {% extends "blog/base.html" %}
 {% block content %}
+    <h1 class="mb-3">Topics followed by {{ view.kwargs.username }} ({{ page_obj.paginator.count }})</h1>
     {% for keyword in keywords %}
         <article class="media content-section">
-          
           <div class="media-body">
-            
-            <h2><a class="article-title" href="{% url 'keyword-detail' keyword.id %}">{{ keyword.name }}</a></h2>
+            <div class="article-metadata">
+            <h2>{{ keyword.name }}</h2>
             <p class="article-content">{{ keyword.description }}</p>
-            <p class="article-content">followed by {% for author in keyword.followedbys.all %}</p>
-            <a href="{% url 'profile' %}">{{ author.username }}</a>
+            <p class="article-content">followed by: {% for author in keyword.followedbys.all %}</p>
+            <a href="{% url 'keyword-detail' .id %}">{{ author }}</a>
             {% endfor %}
-
-            <p class="article-content">all posts: {% for post in keyword.post_set.all %}
-            
-            <a class="article-title" href="{% url 'post-detail' post.id %}">{{ post.title }}</a>
-
-            {% endfor %}</p>
           </div>
         </article>
     {% endfor %}

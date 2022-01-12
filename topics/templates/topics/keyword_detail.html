@@ -14,10 +14,10 @@
       <h2 class="article-title">{{ object.name }}</h2>
       <p class="article-content">{{ object.description }}</p>
       <p class="article-content"> followed by: {% for a in object.followedbys.all %}
-        {{ a }}
+      {{ a }}
       {% endfor %}</p>
-      <p class="article-content">all posts: {% for p in object.post_set.all %}
-        {{ p }}
+      <p class="article-content">all posts: {% for post in object.post_set.all %}
+      <a href="{% url 'post-detail' post.id %}">  {{ post.title }}</a>
       {% endfor %}</p>
       
           
