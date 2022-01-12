@@ -157,4 +157,4 @@ CKEDITOR_CONFIGS = {
 import django_heroku
 django_heroku.settings(locals())
 
-CSRF_TRUSTED_ORIGINS = ["https://pacific-coast-78888.herokuapp.com"]
+CSRF_TRUSTED_ORIGINS = ["https://glacial-tundra-58947.herokuapp.com"]
